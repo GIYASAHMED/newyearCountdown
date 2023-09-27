@@ -1,9 +1,10 @@
+const heading = document.querySelector('h1')
 const day = document.querySelector('#day')
 const hou = document.querySelector('#hour')
 const minute = document.querySelector('#min')
 const seconds = document.querySelector('#sec')
 
-const newYear = "1 JANUARY 2024"
+const newYear = "28 SEPTEMBER 2023"
 
 function countdown(){
     const newyearDate = new Date(newYear)
@@ -23,11 +24,23 @@ function countdown(){
     hou .innerHTML = formate(hour)
     minute.innerHTML = formate(min)
     seconds.innerHTML = formate(sec)
+
+    if(days == "00" && hou == "00" && minute == "00" && sec == "00"){
+        clearInterval(endCountDown)
+    }
 }
 
 function formate(time){
     return time < 10 ? "0"+ time : time
 }
 
-countdown()
-setInterval(countdown, 1000)
+
+let endCountDown = setInterval(function(){
+    
+    countdown()
+    
+},1000)
+
+
+
+

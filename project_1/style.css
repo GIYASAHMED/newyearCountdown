@@ -6,6 +6,7 @@
 
 #main{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -15,6 +16,11 @@
     background-position: center;
 }
 
+h1{
+    font-size: 45px;
+    color:#135805;
+    background: white;
+}
 .timer_container{
     display: flex;
     justify-content: space-evenly;
@@ -38,4 +44,5 @@
 }
 span{
     font-size: 32px;
+    display: inline-block;
 }
