@@ -1,46 +1,46 @@
-const heading = document.querySelector('h1')
-const day = document.querySelector('#day')
-const hou = document.querySelector('#hour')
-const minute = document.querySelector('#min')
-const seconds = document.querySelector('#sec')
+const day = document.querySelector("#day")
+const hour = document.querySelector("#hour")
+const min = document.querySelector("#min")
+const sec = document.querySelector("#sec")
 
-const newYear = "28 SEPTEMBER 2023"
+let newYear = "1 jan 2024"
 
-function countdown(){
-    const newyearDate = new Date(newYear)
-    const currentYear = new Date()
+function newYearCountDown(){
+    let newYearfN = new Date(newYear)
+    let currentYear = new Date()
 
-    const diff = newyearDate - currentYear
+    let diff = newYearfN - currentYear
 
-    const totalSeconds = diff / 1000
+    let totalSeconds = diff /1000
 
-    const days = Math.floor(totalSeconds / 3600 / 24)
-    const hour = Math.floor(totalSeconds / 3600) % 24
-    const min = Math.floor(totalSeconds / 60) % 60 
-    const sec = Math.floor(totalSeconds) % 60
+    let days = Math.floor((totalSeconds / 3600) /24)
+    let hours = Math.floor((totalSeconds /3600) % 24)
+    let minutes = Math.floor((totalSeconds / 60) % 60)
+    let seconds = Math.floor(totalSeconds % 60)
+
+    day.innerHTML = setAtbr(days)
+    hour.innerHTML = setAtbr(hours)
+    min.innerHTML = setAtbr(minutes)
+    sec.innerHTML = setAtbr(seconds)
+
+    endint()
     
+    
+}
 
-    day.innerHTML = formate(days)
-    hou .innerHTML = formate(hour)
-    minute.innerHTML = formate(min)
-    seconds.innerHTML = formate(sec)
+function setAtbr(time){
+    return time < 10 ? "0"+time : time
+}
 
-    if(days == "00" && hou == "00" && minute == "00" && sec == "00"){
-        clearInterval(endCountDown)
+function endint(){
+    if(day.innerHTML == "00" && hour.innerHTML == "00" && min.innerHTML == "00" && sec.innerHTML == "00"){
+        clearInterval(int)
+        document.querySelector('.timer_container').innerHTML = `<h1>WELCOME 2024</h1>`
     }
 }
 
-function formate(time){
-    return time < 10 ? "0"+ time : time
-}
-
-
-let endCountDown = setInterval(function(){
-    
-    countdown()
-    
-},1000)
 
 
 
-
+newYearCountDown()
+const int = setInterval(newYearCountDown, 1000)
